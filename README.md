@@ -1,6 +1,8 @@
 # Post App
 
 Post App is a simple web application for creating and managing posts. It supports user authentication, role-based access control, and allows users to comment on posts.
+(Live Link to access -> https://mohdalauddinnizami.pythonanywhere.com/)
+(Use username - "admin1", pass - "password1" to login as an admit and test the app.)
 
 ## Table of Contents
 
