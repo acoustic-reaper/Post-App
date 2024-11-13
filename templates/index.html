@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4">Latest Posts</h1>
+    <div class="list-group">
+        {% for post in posts %}
+            <a href="/posts/{{ post.id }}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ post.title }}</h5>
+                <p class="mb-1">{{ post.content | truncate(100) }}</p>
+                <small>Posted on {{ post.timestamp }}</small>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

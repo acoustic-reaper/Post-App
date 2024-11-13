@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post Details
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4">{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <small>Posted on {{ post.timestamp }}</small>
+
+    <hr>
+
+    <h2 class="mb-4">Comments</h2>
+    <div class="list-group">
+        {% for comment in comments %}
+            <div class="list-group-item">
+                <p>{{ comment.content }}</p>
+                <small>Commented by User {{ comment.user_id }} on {{ comment.timestamp }}</small>
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <h2 class="mb-4">Add a Comment</h2>
+    <form action="/posts/{{ post.id }}" method="post">
+        <div class="mb-3">
+            <textarea class="form-control" name="content" rows="3" placeholder="Your comment" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Comment</button>
+    </form>
+{% endblock %}

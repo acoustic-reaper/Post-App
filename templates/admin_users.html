@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Manage Users
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4">Manage Users</h1>
+    <div class="list-group mb-4">
+        {% for user in users %}
+            <div class="list-group-item">
+                <h5 class="mb-1">{{ user.username }}</h5>
+                <small>Role: {{ user.role }}</small>
+            </div>
+        {% endfor %}
+    </div>
+    <h2 class="mb-4">Create New User</h2>
+    <form action="/admin/users" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3">
+            <label for="confirmation" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmation" name="confirmation" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Create User</button>
+    </form>
+{% endblock %}
